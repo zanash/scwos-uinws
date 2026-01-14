@@ -34,28 +34,28 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author }) => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 gap-4 mb-4">
           {/* Scopus Stats */}
-          <div className="bg-orange-50 rounded-lg p-3 border border-orange-100">
-            <div className="text-xs text-orange-600 font-semibold uppercase">Scopus</div>
-            <div className="flex justify-between items-end mt-1">
-               <span className="text-lg font-bold text-gray-800">{author.scopusDocs}</span>
-               {author.scopusId && (
-                   <span className="text-xs text-gray-400 font-mono truncate max-w-[80px]" title={author.scopusId}>
-                       {author.scopusId.split(',')[0]} {author.scopusId.includes(',') ? '...' : ''}
-                   </span>
-               )}
+          <div className="bg-orange-50 rounded-lg p-3 border border-orange-100 flex flex-col h-full">
+            <div className="flex justify-between items-start">
+               <span className="text-xs text-orange-600 font-semibold uppercase">Scopus</span>
+               <span className="text-lg font-bold text-gray-800 leading-none">{author.scopusDocs}</span>
             </div>
+            {author.scopusId && (
+               <div className="mt-2 text-[11px] text-gray-500 font-mono break-words leading-tight">
+                   {author.scopusId}
+               </div>
+            )}
           </div>
           {/* WoS Stats */}
-          <div className="bg-blue-50 rounded-lg p-3 border border-blue-100">
-            <div className="text-xs text-blue-600 font-semibold uppercase">WoS</div>
-            <div className="flex justify-between items-end mt-1">
-               <span className="text-lg font-bold text-gray-800">{author.wosDocs}</span>
-               {author.wosId && (
-                   <span className="text-xs text-gray-400 font-mono truncate max-w-[80px]" title={author.wosId}>
-                        {author.wosId.split(',')[0]} {author.wosId.includes(',') ? '...' : ''}
-                   </span>
-               )}
+          <div className="bg-blue-50 rounded-lg p-3 border border-blue-100 flex flex-col h-full">
+            <div className="flex justify-between items-start">
+               <span className="text-xs text-blue-600 font-semibold uppercase">WoS</span>
+               <span className="text-lg font-bold text-gray-800 leading-none">{author.wosDocs}</span>
             </div>
+            {author.wosId && (
+               <div className="mt-2 text-[11px] text-gray-500 font-mono break-words leading-tight">
+                    {author.wosId}
+               </div>
+            )}
           </div>
         </div>
 
